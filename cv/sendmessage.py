@@ -2,23 +2,24 @@
 import serial
 import time
 
-ser = serial.Serial("/dev/ttyAMA0", 115200)  # 位置1
 
-print('serial test start ...')
+
+# print('serial test start ...')
 
 def send(strs,data):
-    ser.write(strs.encode())  # 位置6
+    ser = serial.Serial("/dev/ttyAMA0", 115200)  # 位置1
+    ser.write(strs)  # 位置6
     for i in range(len(data)):
-        bytes=floatToBytes(data[i])
-        ser.write(bytes)
+        byte=floatToBytes(data[i])
+        ser.write(byte)
     time.sleep(0.1)  # 位置8
 
 import struct
 
 def floatToBytes(f):
     bs = struct.pack("f",f)
-    bytes = bytes(bs)
-    return bytes
+    byte = bytes(bs)
+    return byte
 
 if __name__ == '__main__':
-    send("hello",[1,2])
+    print(b'\xcc\xaa')

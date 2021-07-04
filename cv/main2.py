@@ -4,7 +4,7 @@ import check_circle
 import findcolor
 import time
 import configparser
-# import sendmessage
+import sendmessage
 
 config = configparser.ConfigParser()
 # 读取配置文件
@@ -12,7 +12,7 @@ filename = 'config.ini'
 config.read(filename, encoding='utf-8')
 midX = config.getint('camera', 'x')//2
 midY = config.getint('camera','y')//2
-state = config.getint('system', 'state')//2
+state = config.getint('system', 'state')
 
 cap = cv2.VideoCapture(0)
 cv2.namedWindow('camera2', cv2.WINDOW_AUTOSIZE)
@@ -44,7 +44,7 @@ while cap.isOpened():
                 else:
                     try:
                         print(flag_black,flag, driftX, driftY)
-                        strs = "CCBB"
+                        strs = b'\xcc\xbb'
                         sendmessage.send(strs,[flag_black,flag, driftX, driftY])
                     except:
                         print("send failed")
