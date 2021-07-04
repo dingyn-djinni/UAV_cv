@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import findcolor
 import configparser
-#import sendmessage
+import sendmessage
 config = configparser.ConfigParser()
 
 # 读取配置文件
@@ -11,9 +11,9 @@ config.read(filename, encoding='utf-8')
 
 midX = config.getint('camera', 'x')//2
 midY = config.getint('camera', 'y')//2
-state = config.getint('system', 'state')//2
+state = config.getint('system', 'state')
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 cv2.namedWindow('camera', cv2.WINDOW_AUTOSIZE)
 
 while cap.isOpened(): # 开启照相机
@@ -41,8 +41,9 @@ while cap.isOpened(): # 开启照相机
             else:
                 try:
                     print(flag_green, flag_red, driftGreenX, driftRedX, greenWidth, redWidth)
-                    strs="CCAA"
-                    sendmessage.send(strs,[flag_green,flag_red,driftGreenX,driftRedX,greenWidth,redWidth])
+                    strs=b'\xcc\xaa'
+                    sums=sum([flag_green,flag_red,driftGreenX,driftRedX,greenWidth,redWidth])
+                    sendmessage.send(strs,[flag_green,flag_red,driftGreenX,driftRedX,greenWidth,redWidth,sums])
                 except:
                     print("send failed")
                     print(flag_green, flag_red, driftGreenX, driftRedX, greenWidth, redWidth)

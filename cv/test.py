@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import findcolor
 import configparser
-# import sendmessage
+import sendmessage
 config = configparser.ConfigParser()
 
 # 读取配置文件
@@ -11,7 +11,7 @@ config.read(filename, encoding='utf-8')
 
 midX = config.getint('camera', 'x')//2
 midY = config.getint('camera', 'y')//2
-state = config.getint('system', 'state')//2
+state = config.getint('system', 'state')
 
 cap = cv2.VideoCapture(0)
 cv2.namedWindow('camera', cv2.WINDOW_AUTOSIZE)
