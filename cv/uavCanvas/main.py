@@ -74,7 +74,8 @@ class mywindow(QtWidgets.QWidget, Ui_dialog):
 
     # 测试图像线程
     def getImg1(self,picture):
-        cap = cv2.VideoCapture(self.testCamID.value(),cv2.CAP_DSHOW)
+        cap = cv2.VideoCapture(self.testCamID.value())
+        print(self.testCamID.value())
         while cap.isOpened() :
             ret, self.frame = cap.read()
             if self.frame is not None:
@@ -83,7 +84,7 @@ class mywindow(QtWidgets.QWidget, Ui_dialog):
                     cv2.waitKey(1)
     # 前置摄像头线程
     def frontImg(self,picture):
-        cap = cv2.VideoCapture(self.frontCameraID.value(), cv2.CAP_DSHOW)
+        cap = cv2.VideoCapture(self.frontCameraID.value())
         flag_red = 1
         flag_green = 1
         while cap.isOpened():
@@ -138,7 +139,7 @@ class mywindow(QtWidgets.QWidget, Ui_dialog):
 
     # 底部摄像头线程
     def bottomImg(self,picture):
-        cap = cv2.VideoCapture(self.bottomCameraID.value(), cv2.CAP_DSHOW)
+        cap = cv2.VideoCapture(self.bottomCameraID.value())
         is_cricle = 0
         i = 0
         sum = 0
@@ -186,6 +187,7 @@ class mywindow(QtWidgets.QWidget, Ui_dialog):
 
     # 阈值对比函数
     def pressCmpButton(self):
+        print("cmp_button")
         if self.redRadio.isChecked()==True:
             self.sH, self.sS, self.sV=self.lowRedH.value(),self.lowRedS.value(),self.lowRedV.value()
             self.lH, self.lS, self.lV=self.highRedH.value(),self.highRedS.value(),self.highRedV.value()
@@ -265,6 +267,7 @@ class mywindow(QtWidgets.QWidget, Ui_dialog):
         except:
             print("no thread1")
             return
+        print("img get!")
         cv2.imshow('picture', self.frame)
         cv2.waitKey(1)
         return
