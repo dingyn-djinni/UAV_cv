@@ -1,0 +1,1093 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>dialog</class>
+ <widget class="QDialog" name="dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>942</width>
+    <height>377</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>120</y>
+     <width>71</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>参数设定</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>50</y>
+     <width>21</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>H</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>660</x>
+     <y>20</y>
+     <width>72</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>高</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="takeImage">
+   <property name="geometry">
+    <rect>
+     <x>830</x>
+     <y>70</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>开启摄像</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="lowRedV">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>70</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>255</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="frontCameraID">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>220</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>3</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>230</y>
+     <width>72</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>前摄像头</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>270</y>
+     <width>72</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>底摄像头</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="bottomCameraID">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>270</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>3</number>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="frontCameraOpen">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>220</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>开启摄像头1</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="bottomCameraOpen">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>270</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>开启摄像头2</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="outputData">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>320</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>导出参数</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="shutDown">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>320</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>关闭程序</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="threshold">
+   <property name="geometry">
+    <rect>
+     <x>830</x>
+     <y>150</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>阈值对比</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="lowRedH">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>70</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>255</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="lowRedS">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>70</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>255</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="lowGreenS">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>110</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>255</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="lowGreenV">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>110</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>255</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="lowGreenH">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>110</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>255</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="lowBlackS">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>150</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>255</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="lowBlackV">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>150</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>255</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="lowBlackH">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>150</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>255</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="highRedS">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>70</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>255</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="highRedV">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>70</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>255</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="highRedH">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>70</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>255</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="highGreenS">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>110</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>255</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="highGreenV">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>110</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>255</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="highGreenH">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>110</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>255</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="highBlackS">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>150</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>255</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="highBlackV">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>150</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>255</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="highBlackH">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>150</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>255</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>50</y>
+     <width>21</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>S</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>50</y>
+     <width>21</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>V</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_11">
+   <property name="geometry">
+    <rect>
+     <x>660</x>
+     <y>50</y>
+     <width>21</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>S</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_12">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>50</y>
+     <width>21</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>V</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_13">
+   <property name="geometry">
+    <rect>
+     <x>580</x>
+     <y>50</y>
+     <width>21</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>H</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_14">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>20</y>
+     <width>72</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>低</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="debugMode">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>230</y>
+     <width>91</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>调试模式</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="transferMode">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>270</y>
+     <width>91</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>传输模式</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="testCamID">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>80</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>3</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_15">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>90</y>
+     <width>81</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>测试摄像头</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pickImage">
+   <property name="geometry">
+    <rect>
+     <x>830</x>
+     <y>110</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>选定图片</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="redRadio">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>80</y>
+     <width>71</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>红色</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="greenRadio">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>120</y>
+     <width>61</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>绿色</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="blackRadio">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>150</y>
+     <width>61</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>黑色</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="frontCameraShut">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>220</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>关闭摄像头1</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="bottomCameraShut">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>270</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>关闭摄像头2</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="grayMode">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>840</x>
+     <y>280</y>
+     <width>91</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>灰度图</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>frontCameraOpen</sender>
+   <signal>clicked()</signal>
+   <receiver>dialog</receiver>
+   <slot>pressCam1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>580</x>
+     <y>237</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>706</x>
+     <y>232</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>bottomCameraOpen</sender>
+   <signal>clicked()</signal>
+   <receiver>dialog</receiver>
+   <slot>pressCam2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>572</x>
+     <y>282</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>753</x>
+     <y>295</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>takeImage</sender>
+   <signal>clicked()</signal>
+   <receiver>dialog</receiver>
+   <slot>pressCutButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>854</x>
+     <y>87</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>808</x>
+     <y>67</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>threshold</sender>
+   <signal>clicked()</signal>
+   <receiver>dialog</receiver>
+   <slot>pressCmpButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>889</x>
+     <y>157</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>876</x>
+     <y>199</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>outputData</sender>
+   <signal>clicked()</signal>
+   <receiver>dialog</receiver>
+   <slot>pressLog()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>395</x>
+     <y>321</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>192</x>
+     <y>337</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>shutDown</sender>
+   <signal>clicked()</signal>
+   <receiver>dialog</receiver>
+   <slot>pressShut()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>532</x>
+     <y>334</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>697</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pickImage</sender>
+   <signal>clicked()</signal>
+   <receiver>dialog</receiver>
+   <slot>pressGetImage()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>836</x>
+     <y>132</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>868</x>
+     <y>133</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lowRedH</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>dialog</receiver>
+   <slot>pressCmpButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>330</x>
+     <y>96</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>198</x>
+     <y>37</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lowRedS</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>dialog</receiver>
+   <slot>pressCmpButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>404</x>
+     <y>88</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>355</x>
+     <y>29</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lowRedV</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>dialog</receiver>
+   <slot>pressCmpButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>470</x>
+     <y>90</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>481</x>
+     <y>37</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>highRedH</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>dialog</receiver>
+   <slot>pressCmpButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>591</x>
+     <y>89</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>604</x>
+     <y>36</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>highRedS</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>dialog</receiver>
+   <slot>pressCmpButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>662</x>
+     <y>88</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>729</x>
+     <y>36</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>highRedV</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>dialog</receiver>
+   <slot>pressCmpButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>734</x>
+     <y>92</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>852</x>
+     <y>44</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lowGreenH</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>dialog</receiver>
+   <slot>pressCmpButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>343</x>
+     <y>135</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>77</x>
+     <y>182</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lowGreenS</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>dialog</receiver>
+   <slot>pressCmpButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>420</x>
+     <y>129</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>71</x>
+     <y>218</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lowGreenV</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>dialog</receiver>
+   <slot>pressCmpButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>491</x>
+     <y>116</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>18</x>
+     <y>247</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>highGreenH</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>dialog</receiver>
+   <slot>pressCmpButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>573</x>
+     <y>128</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>31</x>
+     <y>290</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>highGreenS</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>dialog</receiver>
+   <slot>pressCmpButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>671</x>
+     <y>131</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>150</x>
+     <y>159</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>highGreenV</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>threshold</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>753</x>
+     <y>137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>853</x>
+     <y>170</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>highBlackV</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>threshold</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>747</x>
+     <y>176</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>877</x>
+     <y>170</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>highBlackS</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>threshold</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>646</x>
+     <y>169</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>913</x>
+     <y>174</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>highBlackH</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>threshold</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>573</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>901</x>
+     <y>174</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lowBlackV</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>threshold</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>487</x>
+     <y>170</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>896</x>
+     <y>177</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lowBlackS</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>threshold</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>416</x>
+     <y>162</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>912</x>
+     <y>173</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lowBlackH</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>threshold</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>330</x>
+     <y>169</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>887</x>
+     <y>170</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>frontCameraShut</sender>
+   <signal>clicked()</signal>
+   <receiver>dialog</receiver>
+   <slot>shutCam1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>800</x>
+     <y>244</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>887</x>
+     <y>243</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>bottomCameraShut</sender>
+   <signal>clicked()</signal>
+   <receiver>dialog</receiver>
+   <slot>shutCam2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>765</x>
+     <y>282</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>891</x>
+     <y>331</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>pressCutButton()</slot>
+  <slot>pressCmpButton()</slot>
+  <slot>pressCam1()</slot>
+  <slot>pressCam2()</slot>
+  <slot>pressShut()</slot>
+  <slot>pressLog()</slot>
+  <slot>pressGetImage()</slot>
+  <slot>shutCam1()</slot>
+  <slot>shutCam2()</slot>
+ </slots>
+</ui>

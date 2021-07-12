@@ -27,7 +27,7 @@ def plot_in(plot,cmp1,cmp2):
     for i in range(0,len(plot)):
         if plot[i]<cmp1[i] or plot[i]>cmp2[i]:
             return 0;
-    return 1;
+    return 1
 
 
 def image_preprocessing_color(frame,color):
