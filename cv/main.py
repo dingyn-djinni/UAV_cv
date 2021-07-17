@@ -40,10 +40,10 @@ while cap.isOpened(): # 开启照相机
                 print(flag_green,flag_red,driftGreenX,driftRedX,greenWidth,redWidth)#需要发送给control system的消息。格式为是否检测到，偏移量。
             else:
                 try:
-                    print(flag_green, flag_red, driftGreenX, driftRedX, greenWidth, redWidth)
                     strs=b'\xcc\xaa'
-                    sums=sum([flag_green,flag_red,driftGreenX,driftRedX,greenWidth,redWidth])
-                    sendmessage.send(strs,[flag_green,flag_red,driftGreenX,driftRedX,greenWidth,redWidth,sums])
+                    sums=sum([flag_green,flag_red,-driftGreenX,-driftRedX,greenWidth,redWidth])
+                    sendmessage.send(strs,[flag_green,flag_red,-driftGreenX,-driftRedX,greenWidth,redWidth,sums])
+                    print(flag_green, flag_red, -driftGreenX, -driftRedX, greenWidth, redWidth,sums)
                 except:
                     print("send failed")
                     print(flag_green, flag_red, driftGreenX, driftRedX, greenWidth, redWidth)

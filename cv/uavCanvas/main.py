@@ -85,9 +85,9 @@ class mywindow(QtWidgets.QWidget, Ui_dialog):
     # 前置摄像头线程
     def frontImg(self,picture):
         cap = cv2.VideoCapture(self.frontCameraID.value())
-        flag_red = 1
-        flag_green = 1
         while cap.isOpened():
+            flag_red = 1
+            flag_green = 1
             ret, frame = cap.read()
             if ret:
                 if frame is not None:
@@ -122,12 +122,12 @@ class mywindow(QtWidgets.QWidget, Ui_dialog):
                         try:
                             print(flag_green, flag_red, driftGreenX, driftRedX, greenWidth, redWidth)
                             strs = b'\xcc\xaa'
-                            sums = sum([flag_green, flag_red, driftGreenX, driftRedX, greenWidth, redWidth])
+                            sums = sum([flag_green, flag_red, -driftGreenX, -driftRedX, greenWidth, redWidth])
                             sendmessage.send(strs,
-                                             [flag_green, flag_red, driftGreenX, driftRedX, greenWidth, redWidth, sums])
+                                             [flag_green, flag_red, -driftGreenX, -driftRedX, greenWidth, redWidth, sums])
                         except:
                             print("send failed")
-                            print(flag_green, flag_red, driftGreenX, driftRedX, greenWidth, redWidth)
+                            print(flag_green, flag_red, -driftGreenX, -driftRedX, greenWidth, redWidth)
                     if self.debugMode.isChecked() == True:
                         cv2.imshow(picture, frame)
                         cv2.waitKey(1)
