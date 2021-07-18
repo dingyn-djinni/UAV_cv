@@ -76,33 +76,44 @@ class mywindow(QtWidgets.QWidget, Ui_dialog):
     def getImg1(self,picture):
         cap = cv2.VideoCapture(self.testCamID.value())
         print(self.testCamID.value())
+        i=0
         while cap.isOpened() :
             ret, self.frame = cap.read()
+            i+=1
             if self.frame is not None:
-                if self.debugMode.isChecked()==True:
+                if self.debugMode.isChecked()==True and i%5==0:
                     cv2.imshow(picture, self.frame)
                     cv2.waitKey(1)
+                    i=0
     # 前置摄像头线程
     def frontImg(self,picture):
         cap = cv2.VideoCapture(self.frontCameraID.value())
+        i = 0
         while cap.isOpened():
             flag_red = 1
             flag_green = 1
             ret, frame = cap.read()
+            i+=1
             if ret:
                 if frame is not None:
-                    greenX, greenY, greenWidth = imgProcessing.findcolor(frame, [self.lowGreenH.value(),
+                    greenX, greenY, greenWidth,frame = imgProcessing.findcolor(frame, [self.lowGreenH.value(),
                                                                                  self.lowGreenS.value(),
                                                                                  self.lowGreenV.value()],
                                                                          [self.highGreenH.value(),
                                                                           self.highGreenS.value(),
                                                                           self.highGreenV.value()], 'picture', 'green',
                                                                          self.debugMode.isChecked())
-                    redX, redY, redWidth = imgProcessing.findcolor(frame, [self.lowRedH.value(), self.lowRedS.value(),
+                    if self.debugMode.isChecked() == True and i%3==0:
+                        cv2.imshow("picture", frame)
+                        cv2.waitKey(5)
+                    redX, redY, redWidth,frame = imgProcessing.findcolor(frame, [self.lowRedH.value(), self.lowRedS.value(),
                                                                            self.lowRedV.value()],
                                                                    [self.highRedH.value(), self.highRedS.value(),
                                                                     self.highRedV.value()], 'picture', 'red',
                                                                    self.debugMode.isChecked())
+                    if self.debugMode.isChecked() == True and i%3==0:
+                        cv2.imshow("picture", frame)
+                        cv2.waitKey(5)
                     if greenX == -255:
                         flag_green = 0
                     if redX == -255:
@@ -128,14 +139,15 @@ class mywindow(QtWidgets.QWidget, Ui_dialog):
                         except:
                             print("send failed")
                             print(flag_green, flag_red, -driftGreenX, -driftRedX, greenWidth, redWidth)
-                    if self.debugMode.isChecked() == True:
-                        cv2.imshow(picture, frame)
-                        cv2.waitKey(1)
+                    # if self.debugMode.isChecked() == True:
+                    #     cv2.imshow(picture, frame)
+                    #     cv2.waitKey(1)
                 else:
                     print("无画面")
             else:
                 print("无法读取摄像头！")
-
+            if i==3:
+                i=0
 
     # 底部摄像头线程
     def bottomImg(self,picture):
@@ -148,15 +160,15 @@ class mywindow(QtWidgets.QWidget, Ui_dialog):
             ret, frame = cap.read()
             if ret:
                 if frame is not None:
-                    flag_black, flag, x, y = imgProcessing.findcolorCircle(frame,[self.lowBlackH.value(), self.lowBlackS.value(), self.lowBlackV.value()],[self.highBlackH.value(), self.highBlackS.value(), self.highBlackV.value()],'picture2','black',self.debugMode.isChecked(),self.grayMode.isChecked())
+                    flag_black, flag, x, y,frame = imgProcessing.findcolorCircle(frame,[self.lowBlackH.value(), self.lowBlackS.value(), self.lowBlackV.value()],[self.highBlackH.value(), self.highBlackS.value(), self.highBlackV.value()],'picture2','black',self.debugMode.isChecked(),self.grayMode.isChecked())
                     if x == -255:
                         flag_black = 0
                     driftX = x - midX
                     driftY = y - midY
                     i += 1
                     sum += flag
-                    if i == 10:
-                        flag = sum / 10
+                    if i == 7:
+                        flag = sum / 7
                         if flag >= 0.2:
                             flag = 1
                         else:
@@ -165,15 +177,19 @@ class mywindow(QtWidgets.QWidget, Ui_dialog):
                             print(flag_black, flag, driftX, driftY)  # 需要发送给control system的消息。格式为是否检测到，偏移量。
                         else:
                             try:
-                                print(flag_black, flag, driftX, driftY)
                                 strs = b'\xcc\xbb'
-                                sendmessage.send(strs, [flag_black, flag, driftX, driftY])
+                                sums=flag_black+flag+driftX+driftY
+                                sendmessage.send(strs, [flag_black, flag, driftX, driftY,sums])
+                                print(flag_black, flag, driftX, driftY,sums)
                             except:
                                 print("send failed")
                                 print(flag_black, flag, driftX, driftY)
                         flag = 0
                         sum = 0
                         i = 0
+                    if self.debugMode.isChecked() == True:
+                        cv2.imshow("picture2", frame)
+                        cv2.waitKey(1)
                 else:
                     print("无画面")
             else:

@@ -14,7 +14,7 @@ midX = config.getint('camera', 'x')//2
 midY = config.getint('camera','y')//2
 state = config.getint('system', 'state')
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(2)
 cv2.namedWindow('camera2', cv2.WINDOW_AUTOSIZE)
 
 is_cricle=0
@@ -33,8 +33,8 @@ while cap.isOpened():
             driftY=y-midY
             i+=1
             sum+=flag
-            if i==10:
-                flag=sum/10
+            if i==7:
+                flag=sum/7
                 if flag>=0.2:
                     flag=1
                 else:
@@ -43,9 +43,10 @@ while cap.isOpened():
                     print(flag_black,flag, driftX, driftY)  # 需要发送给control system的消息。格式为是否检测到，偏移量。
                 else:
                     try:
-                        print(flag_black,flag, driftX, driftY)
                         strs = b'\xcc\xbb'
-                        sendmessage.send(strs,[flag_black,flag, driftX, driftY])
+                        sums = flag_black + flag + driftX + driftY
+                        sendmessage.send(strs, [flag_black, flag, driftX, driftY, sums])
+                        print(flag_black, flag, driftX, driftY, sums)
                     except:
                         print("send failed")
                         print(flag_black, flag, driftX, driftY)

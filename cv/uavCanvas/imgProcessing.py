@@ -9,10 +9,10 @@ def findcolor(frame,colorLow,colorHigh,camera,ball_color,debugMode):
     inRange_hsv = cv2.inRange(erode_hsv, np.array(colorLow), np.array(colorHigh))
     cnts = cv2.findContours(inRange_hsv.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)[-2]
     if len(cnts) == 0:
-        return -255,-255,0
+        return -255,-255,0,frame
     c = max(cnts, key=cv2.contourArea)
     if len(c)<=90:
-        return -255, -255,0
+        return -255, -255,0,frame
     rect = cv2.minAreaRect(c)
     box = cv2.boxPoints(rect)
     if ball_color=='red':
@@ -25,10 +25,10 @@ def findcolor(frame,colorLow,colorHigh,camera,ball_color,debugMode):
     centerpointY = int(sum(box[:, 1]) // 4)
     centerpoint = (centerpointX, centerpointY)
     width=abs(box[0,0]-box[1,0])
-    if debugMode==True:
-        cv2.imshow(camera, frame)
-        cv2.waitKey(1)
-    return centerpointX,centerpointY,int(width)
+    # if debugMode==True:
+    #     cv2.imshow(camera, frame)
+    #     cv2.waitKey(1)
+    return centerpointX,centerpointY,int(width),frame
 
 def findcolorCircle(frame,colorLow,colorHigh,camera,ball_color,debugMode,grayMode):
     flagBlack=0
@@ -39,10 +39,10 @@ def findcolorCircle(frame,colorLow,colorHigh,camera,ball_color,debugMode,grayMod
     inRange_hsv = cv2.inRange(erode_hsv, np.array(colorLow), np.array(colorHigh))
     cnts = cv2.findContours(inRange_hsv.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)[-2]
     if len(cnts) == 0:
-        return 0,0,-255,-255
+        return 0,0,-255,-255,frame
     c = max(cnts, key=cv2.contourArea)
     if len(c)<=50:
-        return 0,0,-255,-255
+        return 0,0,-255,-255,frame
     rect = cv2.minAreaRect(c)
     box = cv2.boxPoints(rect)
     centerpointX = int(sum(box[:, 0]) // 4)
@@ -64,10 +64,14 @@ def findcolorCircle(frame,colorLow,colorHigh,camera,ball_color,debugMode,grayMod
                 cv2.circle(frame, (i[0], i[1]), i[2], (0, 0, 255), 2)  # 画圆
                 cv2.circle(frame, (i[0], i[1]), 2, (255, 0, 0), 2)  # 画圆心
             flagCircle = 1
-    if debugMode==True and grayMode==True:
-        cv2.imshow(camera, img)
-        cv2.waitKey(1)
-    if debugMode==True and grayMode==False:
-        cv2.imshow(camera, frame)
-        cv2.waitKey(1)
-    return flagBlack,flagCircle,centerpointX,centerpointY
+    if grayMode==True:
+        return flagBlack,flagCircle,centerpointX,centerpointY,img
+    else:
+        return flagBlack, flagCircle, centerpointX, centerpointY,frame
+    # if debugMode==True and grayMode==True:
+    #     cv2.imshow(camera, img)
+    #     cv2.waitKey(1)
+    # if debugMode==True and grayMode==False:
+    #     cv2.imshow(camera, frame)
+    #     cv2.waitKey(1)
+    # return flagBlack,flagCircle,centerpointX,centerpointY

@@ -52,8 +52,6 @@ def findcircle(frame,ball_color,camera):
     edges = cv2.Canny(bila, 50, 100)  # 边缘识别
     cnts = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)[-2]
     c = max(cnts, key=cv2.contourArea)
-    cv2.imshow(camera, c)
-    cv2.waitKey(1)
     # 识别圆形
     circles = cv2.HoughCircles(
         mask, cv2.HOUGH_GRADIENT, 1, 100, param1=100, param2=70, minRadius=30, maxRadius=500)
@@ -67,8 +65,6 @@ def findcircle(frame,ball_color,camera):
             cv2.circle(frame, (x, y), 3, (255, 255, 0), -1)  # 标记圆心
             text = 'x:  ' + str(x) + ' y:  ' + str(y)
             flag=1
-            cv2.imshow(camera, frame)
-            cv2.waitKey(1)
             return flag
     cv2.imshow(camera, frame)
     cv2.waitKey(1)
@@ -94,13 +90,9 @@ def findcolorCircle(frame,ball_color,camera):
     inRange_hsv = cv2.inRange(erode_hsv, color_dist[ball_color]['Lower'], color_dist[ball_color]['Upper'])
     cnts = cv2.findContours(inRange_hsv.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)[-2]
     if len(cnts) == 0:
-        cv2.imshow(camera, frame)
-        cv2.waitKey(1)
         return 0,0,-255,-255
     c = max(cnts, key=cv2.contourArea)
     if len(c)<=50:
-        cv2.imshow(camera, frame)
-        cv2.waitKey(1)
         return 0,0,-255,-255
     rect = cv2.minAreaRect(c)
     box = cv2.boxPoints(rect)
@@ -122,5 +114,5 @@ def findcolorCircle(frame,ball_color,camera):
                 cv2.circle(img, (i[0], i[1]), 2, (255, 0, 0), 2)  # 画圆心
             flagCircle = 1
     cv2.imshow(camera, img)
-    cv2.waitKey(1)
+    cv2.waitKey(5)
     return flagBlack,flagCircle,centerpointX,centerpointY

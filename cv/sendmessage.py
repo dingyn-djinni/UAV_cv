@@ -7,7 +7,7 @@ import time
 # print('serial test start ...')
 
 def send(strs,data):
-    ser = serial.Serial("/dev/ttyAMA0", 115200)  # 位置1
+    ser = serial.Serial("/dev/ttyUSB0", 115200)  # 位置1
     ser.write(strs)  # 位置6
     for i in range(len(data)):
         byte=floatToBytes(data[i])
